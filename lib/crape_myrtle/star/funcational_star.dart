@@ -128,6 +128,16 @@ class FunctionalStar extends IFunctionalStar {
     return "{name: ${name.title}, type: ${type.title}, brightness: ${brightness?.title}, scope: ${scope.title}, mutagen: ${mutagen?.title}}";
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name.title,
+      'type': type.title,
+      'scope': scope.title,
+      'brightness': brightness?.title,
+      'mutagen': mutagen?.title,
+    };
+  }
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;

@@ -1,5 +1,7 @@
+import 'dart:developer';
 import 'dart:ffi';
 
+import 'package:dart_iztro_example/widgets/astrolabe_chart_view.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -166,18 +168,29 @@ class _MyAppState extends State<MyApp> {
       _isLoading = true;
     });
     print('计算紫微斗数');
+    // 计算时辰索引
+    final timeIndex = (int.parse(_hourController.text) / 2).floor();
+    // 构建日期字符串
+    final dateStr =
+        '${_yearController.text}-${_monthController.text.padLeft(2, '0')}-'
+        '${_dayController.text.padLeft(2, '0')}';
+    final genderToUse =
+        (_gender == GenderName.male.name) ? GenderName.male : GenderName.female;
+
     if (_isLunar) {
-      final result = byLunar('1990-02-05', 3, GenderName.female, true);
-      print('result  $result');
+      final result = byLunar(dateStr, timeIndex, genderToUse, true);
+      // print('result  $result');
+      log('result  ${jsonEncode(result.toJson())}');
       setState(() {
-        // _chartResult = result;
+        _chartResult = result;
         _isLoading = false;
       });
     } else {
-      final result = bySolar('1990-02-05', 3, GenderName.female, true);
-      print('result  $result');
+      final result = bySolar(dateStr, timeIndex, genderToUse, true);
+      // print('result  $result');
+      log('result  ${jsonEncode(result.toJson())}');
       setState(() {
-        // _chartResult = result;
+        _chartResult = result;
         _isLoading = false;
       });
     }
@@ -407,31 +420,16 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Text(
-                        //   '宫位数量: ${(_chartResult!['palaces'] as List).length}',
-                        // ),
-                        const SizedBox(height: 10),
-                        Text(
-                          'detail_info'.tr,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 5),
-                        // Text(
-                        //   const JsonEncoder.withIndent(
-                        //     '  ',
-                        //   ).convert(_chartResult!['info']),
-                        //   style: const TextStyle(fontFamily: 'monospace'),
-                        // ),
-                      ],
-                    ),
-                  ),
-                ),
+                ZiWeiChartView(chart: _chartResult!),
+                // Card(
+                //   child: Padding(
+                //     padding: const EdgeInsets.all(16.0),
+                //     child: Text(
+                //       const JsonEncoder.withIndent('  ').convert(_chartResult),
+                //       style: const TextStyle(fontFamily: 'monospace'),
+                //     ),
+                //   ),
+                // ),
               ],
             ],
           ),

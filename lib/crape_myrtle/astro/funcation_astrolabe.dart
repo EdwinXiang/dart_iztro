@@ -135,8 +135,97 @@ class FunctionalAstrolabe implements IFunctionalAstrolabe {
 
   @override
   String toString() {
-    // TODO: implement toString
-    return 'gender $gender, solardate $solarDate, lunardate $lunarDate, chinesedate $chineseDate, rawdatas $rawDates, time $time, timeRange $timeRage, sign $sign, zodiac $zodiac, earthlyBranchBody ${earthlyBranchOfBodyPalace.title}, earthlyBrnachOfSoul ${earthlyBranchOfSoulPalace.title}, soulr $soul, body $body, filveelelment $fiveElementClass palaces $palaces';
+    final buffer = StringBuffer();
+    buffer.writeln('FunctionalAstrolabe {');
+    buffer.writeln('  gender: $gender,');
+    buffer.writeln('  solarDate: $solarDate,');
+    buffer.writeln('  lunarDate: $lunarDate,');
+    buffer.writeln('  chineseDate: $chineseDate,');
+    buffer.writeln('  rawDates: $rawDates,');
+    buffer.writeln('  time: $time,');
+    buffer.writeln('  timeRange: $timeRage,');
+    buffer.writeln('  sign: $sign,');
+    buffer.writeln('  zodiac: $zodiac,');
+    buffer.writeln('  earthlyBranchOfSoulPalace: ${earthlyBranchOfSoulPalace.title},');
+    buffer.writeln('  earthlyBranchOfBodyPalace: ${earthlyBranchOfBodyPalace.title},');
+    buffer.writeln('  soul: ${soul.title},');
+    buffer.writeln('  body: ${body.title},');
+    buffer.writeln('  fiveElementClass: ${fiveElementClass.title},');
+    buffer.writeln('  palaces: [');
+
+    for (var palace in palaces) {
+      buffer.writeln('    {');
+      buffer.writeln('      index: ${palace.index},');
+      buffer.writeln('      name: ${palace.name.title},');
+      buffer.writeln('      isBodyPalace: ${palace.isBodyPalace},');
+      buffer.writeln('      isOriginalPalace: ${palace.isOriginalPalace},');
+      buffer.writeln('      heavenlyStem: ${palace.heavenlySten.title},');
+      buffer.writeln('      earthlyBranch: ${palace.earthlyBranch.title},');
+
+      buffer.writeln('      majorStars: [${palace.majorStars.map((s) => s.name.title).join(', ')}],');
+      buffer.writeln('      minorStars: [${palace.minorStars.map((s) => s.name.title).join(', ')}],');
+      buffer.writeln('      adjectiveStars: [${palace.adjectiveStars.map((s) => s.name.title).join(', ')}],');
+
+      buffer.writeln('      changsheng12: ${palace.changShen12.title},');
+      buffer.writeln('      boshi12: ${palace.boShi12.title},');
+      buffer.writeln('      jiangqian12: ${palace.jiangQian12.title},');
+      buffer.writeln('      suiqian12: ${palace.suiQian12.title},');
+
+      buffer.writeln('      decadal: {');
+      buffer.writeln('        range: ${palace.decadal.range},');
+      buffer.writeln('        heavenlyStem: ${palace.decadal.heavenlyStem.title},');
+      buffer.writeln('        earthlyBranch: ${palace.decadal.earthlyBranch.title}');
+      buffer.writeln('      },');
+
+      buffer.writeln('      ages: ${palace.ages}');
+      buffer.writeln('    },');
+    }
+
+    buffer.writeln('  ]');
+    buffer.writeln('}');
+
+    return buffer.toString();
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "gender": gender,
+      "solarDate": solarDate,
+      "lunarDate": lunarDate,
+      "chineseDate": chineseDate,
+      "time": time,
+      "timeRange": timeRage,
+      "sign": sign,
+      "zodiac": zodiac,
+      "earthlyBranchOfSoulPalace": earthlyBranchOfSoulPalace.title,
+      "earthlyBranchOfBodyPalace": earthlyBranchOfBodyPalace.title,
+      "soul": soul.title,
+      "body": body.title,
+      "fiveElementsClass": fiveElementClass.title,
+      "palaces": palaces.map((p) {
+        return {
+          "index": p.index,
+          "name": p.name.title,
+          "isBodyPalace": p.isBodyPalace,
+          "isOriginalPalace": p.isOriginalPalace,
+          "heavenlyStem": p.heavenlySten.title,
+          "earthlyBranch": p.earthlyBranch.title,
+          "majorStars": p.majorStars.map((s) => s.toJson()).toList(),
+          "minorStars": p.minorStars.map((s) => s.toJson()).toList(),
+          "adjectiveStars": p.adjectiveStars.map((s) => s.toJson()).toList(),
+          "changsheng12": p.changShen12.title,
+          "boshi12": p.boShi12.title,
+          "jiangqian12": p.jiangQian12.title,
+          "suiqian12": p.suiQian12.title,
+          "decadal": {
+            "range": [p.decadal.range[0], p.decadal.range[1]],
+            "heavenlyStem": p.decadal.heavenlyStem.title,
+            "earthlyBranch": p.decadal.earthlyBranch.title,
+          },
+          "ages": p.ages,
+        };
+      }).toList()
+    };
   }
 
   @override

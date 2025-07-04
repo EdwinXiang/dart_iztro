@@ -371,4 +371,30 @@ class FunctionalPalace implements IFunctionalPalace {
     // TODO: implement toString
     return 'index = $index, palace name = ${name.title}, decadals $decadal, ages $ages, star names ${majorStars.map((e) => e.name).toList()}, ${minorStars.map((e) => e.name).toList()}, ${adjectiveStars.map((e) => e.name).toList()}';
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "index": index,
+      "name": name.title,
+      "isBodyPalace": isBodyPalace,
+      "isOriginalPalace": isOriginalPalace,
+      "heavenlyStem": heavenlySten.title,
+      "earthlyBranch": earthlyBranch.title,
+      "majorStars": majorStars.map((s) => s.toJson()).toList(),
+      "minorStars": minorStars.map((s) => s.toJson()).toList(),
+      "adjectiveStars": adjectiveStars.map((s) => s.toJson()).toList(),
+      "changsheng12": changShen12.title,
+      "boshi12": boShi12.title,
+      "jiangqian12": jiangQian12.title,
+      "suiqian12": suiQian12.title,
+      "decadal": {
+        "range": decadal.range,
+        "heavenlyStem": decadal.heavenlyStem.title,
+        "earthlyBranch": decadal.earthlyBranch.title,
+      },
+      "ages": ages,
+      "yearlies": yearlies,
+    };
+  }
+
 }
