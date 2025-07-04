@@ -312,7 +312,7 @@ void main() {
 ## 联系我
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./contact.png" width="300" alt="wechat" />
+    <img src="./facai.jpg" width="300" alt="wechat" />
   </div>
 </div> 
 
@@ -322,11 +322,11 @@ void main() {
 
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./alipay.jpg" width="300" alt="支付宝收款码" />
+    <img src="./facai.jpg" width="300" alt="支付宝收款码" />
     <p>支付宝</p>
   </div>
   <div style="text-align: center;">
-    <img src="./wechat_pay.jpg" width="300" alt="微信收款码" />
+    <img src="./facai.jpg" width="300" alt="微信收款码" />
     <p>微信支付</p>
   </div>
 </div> 

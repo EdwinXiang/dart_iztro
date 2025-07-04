@@ -290,7 +290,7 @@ If you are interested in `dart_iztro` and want to join the contribution team, yo
 ## Contact me
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./contact.png" width="300" alt="wechat" />
+    <img src="./facai.jpg" width="300" alt="wechat" />
   </div>
 </div> 
 
@@ -300,11 +300,11 @@ If you find this project helpful, you can consider sponsoring me a cup of coffee
 
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./alipay.jpg" width="300" alt="Alipay QR Code" />
+    <img src="./facai.jpg" width="300" alt="Alipay QR Code" />
     <p>Alipay</p>
   </div>
   <div style="text-align: center;">
-    <img src="./wechat_pay.jpg" width="300" alt="WeChat Pay QR Code" />
+    <img src="./facai.jpg" width="300" alt="WeChat Pay QR Code" />
     <p>WeChat Pay</p>
   </div>
 </div> 

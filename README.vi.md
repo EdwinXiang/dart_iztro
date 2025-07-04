@@ -292,7 +292,7 @@ Nếu bạn quan tâm đến `dart_iztro` và muốn tham gia vào nhóm đóng 
 ## Contact me
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./contact.png" width="300" alt="wechat" />
+    <img src="./facai.jpg" width="300" alt="wechat" />
   </div>
 </div> 
 
@@ -302,11 +302,11 @@ Nếu bạn thấy dự án này hữu ích, bạn có thể cân nhắc hỗ tr
 
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./alipay.jpg" width="300" alt="Mã QR Alipay" />
+    <img src="./facai.jpg" width="300" alt="Mã QR Alipay" />
     <p>Alipay</p>
   </div>
   <div style="text-align: center;">
-    <img src="./wechat_pay.jpg" width="300" alt="Mã QR WeChat Pay" />
+    <img src="./facai.jpg" width="300" alt="Mã QR WeChat Pay" />
     <p>WeChat Pay</p>
   </div>
 </div> 

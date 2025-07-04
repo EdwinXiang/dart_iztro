@@ -304,7 +304,7 @@ class MyApp extends StatelessWidget {
 ## Contact me
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./contact.png" width="300" alt="wechat" />
+    <img src="./facai.jpg" width="300" alt="wechat" />
   </div>
 </div> 
 
@@ -314,11 +314,11 @@ class MyApp extends StatelessWidget {
 
 <div style="display: flex; justify-content: space-around; margin: 20px 0;">
   <div style="text-align: center;">
-    <img src="./alipay.jpg" width="300" alt="Alipay QRコード" />
+    <img src="./facai.jpg" width="300" alt="Alipay QRコード" />
     <p>Alipay</p>
   </div>
   <div style="text-align: center;">
-    <img src="./wechat_pay.jpg" width="300" alt="WeChat Pay QRコード" />
+    <img src="./facai.jpg" width="300" alt="WeChat Pay QRコード" />
     <p>WeChat Pay</p>
   </div>
 </div> 
